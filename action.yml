@@ -2,9 +2,12 @@ name: 'Apply ITK Coding Style with clang-format'
 description: 'Apply ITK Coding Style whenon PR label addition'
 author: 'Matt McCormick'
 inputs:
-  labelName:
+  label-name:
     description: 'Label to trigger application of clang-format'
     default: 'action:ApplyClangFormat'
+  github-token:
+    description: "Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}"
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
