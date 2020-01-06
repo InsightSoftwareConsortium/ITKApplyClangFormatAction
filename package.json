@@ -10,11 +10,18 @@
     "type": "git",
     "url": "git+https://github.com/InsightSoftwareConsortium/ITKApplyClangFormatAction.git"
   },
-  "keywords": ["github-action", "ITK"],
+  "keywords": [
+    "github-action",
+    "ITK"
+  ],
   "author": "Matt McCormick",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/InsightSoftwareConsortium/ITKApplyClangFormatAction/issues"
   },
-  "homepage": "https://github.com/InsightSoftwareConsortium/ITKApplyClangFormatAction#readme"
+  "homepage": "https://github.com/InsightSoftwareConsortium/ITKApplyClangFormatAction#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/github": "^2.0.0"
+  }
 }
