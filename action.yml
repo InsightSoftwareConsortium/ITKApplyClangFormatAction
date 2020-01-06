@@ -1,0 +1,6 @@
+name: 'ITK clang-format linter'
+description: 'Check for consistency with ITK Coding Style'
+author: 'Matt McCormick'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
