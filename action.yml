@@ -1,5 +1,5 @@
 name: 'Apply ITK Coding Style with clang-format'
-description: 'Apply ITK Coding Style whenon PR label addition'
+description: 'Apply ITK Coding Style on PR label addition'
 author: 'Matt McCormick'
 inputs:
   label-name:
