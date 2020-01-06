@@ -1,6 +1,11 @@
-name: 'ITK clang-format linter'
-description: 'Check for consistency with ITK Coding Style'
+name: 'Apply ITK Coding Style with clang-format'
+description: 'Apply ITK Coding Style whenon PR label addition'
 author: 'Matt McCormick'
+inputs:
+  labelName:
+    description: 'Label to trigger application of clang-format'
+    default: 'action:ApplyClangFormat'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
