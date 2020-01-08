@@ -6,6 +6,11 @@ label *action:ApplyClangFormat*.
 The bot will run `clang-format` on the current topic branch with ITK's
 configuration, force-push the result, and remove the label.
 
+*Note*: As of 2020-01-08, this action [currently does not work from forked
+repositories](https://github.community/t5/GitHub-Actions/Token-permissions-for-forks-once-again/td-p/33839)
+because the [*GITHUB_TOKEN* has limited
+permissions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token#permissions-for-the-github_token). Branches need to be created on the upstream repository.
+
 ## Usage
 
 Add the following configuration to your project's repository at, e.g.,  *.github/workflows/apply-clang-format.yml*.
