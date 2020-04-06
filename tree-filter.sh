@@ -1,3 +1,6 @@
 #!/bin/bash
 
-cp /ITK.clang-format ./.clang-format && /clang-format.bash --tracked
+if ! test -f ./.clang-format; then
+  cp /ITK.clang-format ./.clang-format
+fi
+/clang-format.bash --tracked
