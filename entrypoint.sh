@@ -4,7 +4,9 @@ set -euo pipefail
 
 cd "$GITHUB_WORKSPACE"
 
-cp /ITK.clang-format ./.clang-format
+if ! test -f ./.clang-format; then
+  cp /ITK.clang-format ./.clang-format
+fi
 /clang-format.bash --tracked
 if ! git diff-index --diff-filter=M --quiet HEAD -- ':!.clang-format'; then
   echo "Code is inconsistent with ITK's Coding Style."
