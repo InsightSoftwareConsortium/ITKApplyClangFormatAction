@@ -1,8 +1,6 @@
-FROM node:12-buster-slim
+FROM node:21-alpine
 
-RUN apt-get update && apt-get install -y \
-  git \
-  wget
+RUN apk add --no-cache wget
 
 RUN wget https://data.kitware.com/api/v1/item/5d640f60d35580e6dcbf4916/download -O clang-format-linux.tar.gz \
   && tar xvzf clang-format-linux.tar.gz \
