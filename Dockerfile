@@ -1,12 +1,31 @@
-FROM node:12-buster-slim
+# This shares many build attributes with
+# ITKClangFormatLinterAction/Dockerfile
+FROM ubuntu:24.04
+
+COPY LICENSE README.md /
 
 RUN apt-get update && apt-get install -y \
   git \
-  wget
+  wget \
+  curl \
+  lsb-release \
+  software-properties-common \
+  gnupg \
+  && apt-get clean
 
-RUN wget https://data.kitware.com/api/v1/item/5d640f60d35580e6dcbf4916/download -O clang-format-linux.tar.gz \
-  && tar xvzf clang-format-linux.tar.gz \
-  && cp clang-format /usr/bin/
+# Download latest .deb packages from llvm.
+# See https://apt.llvm.org/ for instructions.
+RUN wget https://apt.llvm.org/llvm.sh \
+    && chmod +x llvm.sh \
+    && ./llvm.sh 19 \
+    && apt-get update \
+    && apt-get install -y clang-format-19 \
+    && apt-get clean
+
+# The following is a workaround to allow other scripts
+# that were hard-coded to use the unversioned clang-format
+# binary to continue to work.
+RUN cd /usr/bin && rm -rf clang-format && ln -s clang-format-19 clang-format
 
 RUN wget https://raw.githubusercontent.com/InsightSoftwareConsortium/ITK/master/Utilities/Maintenance/clang-format.bash \
   && chmod +x ./clang-format.bash
