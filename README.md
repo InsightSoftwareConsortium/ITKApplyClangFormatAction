@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4.2.2
     - uses: InsightSoftwareConsortium/ITKApplyClangFormatAction@testing
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
